@@ -1,0 +1,25 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    ports: 
+       - '5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+  app:
+    image: property_management-server
+    restart: always
+    ports:
+      - '4000'
+    depends_on:
+      - postgres
+  app-client:
+    image: property_management-client
+    restart: always
+    ports:
+      - '3000'
+    depends_on:
+      - app
+
+  
