@@ -74,7 +74,7 @@ class PropTable extends Component {
     componentDidMount() {
         this.setState({ isLoading: true });
 
-        fetch("/api/properties")
+        fetch("http://localhost:4000/api/properties")
             .then(response => response.json())
             .then(data => this.setState({ properties: data, isLoading: false }));
     }

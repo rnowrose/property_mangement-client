@@ -110,13 +110,13 @@ class SuppliesInsert extends Component {
             this.setState({ variant: 'error' });
         } else {
 
-            fetch("/api/upload", {
+            fetch("http://localhost:4000/api/upload", {
                 method: 'POST',
                 body: data
 
             })
 
-            fetch("/api/supplies", {
+            fetch("http://localhost:4000/api/supplies", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -145,7 +145,7 @@ class SuppliesInsert extends Component {
                     console.log(propParse.sup_id);
                     console.log(this.state.properties);
                     for (let i = 0; i < this.state.properties.length; i++) {
-                        fetch("/api/supply/insert_prop", {
+                        fetch("http://localhost:4000/api/supply/insert_prop", {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',

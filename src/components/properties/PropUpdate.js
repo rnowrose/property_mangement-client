@@ -70,7 +70,7 @@ class PropUpdate extends Component {
     //retrieves data to display on fields
     componentDidMount(){
         const prop_id = parseInt(this.props.match.params.prop_id)
-        fetch("/api/property/" + prop_id)
+        fetch("http://localhost:4000/api/property/" + prop_id)
         .then(response => response.json())
         .then(data => this.setState({ address: data.address, city: data.city, us_state:data.state,
             zip_code:data.zip_code, status:data.status })      
@@ -129,7 +129,7 @@ class PropUpdate extends Component {
             this.setState({ toDisplay: true });
             event.preventDefault();  
             window.location.replace("/");
-            fetch("/api/property/" + prop_id, {
+            fetch("http://localhost:4000/api/property/" + prop_id, {
                 method:'PUT',
                 headers: {
                     'Content-Type': 'application/json',

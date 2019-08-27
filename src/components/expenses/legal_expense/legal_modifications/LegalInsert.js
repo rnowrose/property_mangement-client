@@ -84,13 +84,13 @@ class LegalInsert extends Component {
             this.setState({ toDisplay: true });
             event.preventDefault();  
             window.location.replace("/legal_expense");
-            fetch("/api/upload", {
+            fetch("http://localhost:4000/api/upload", {
                 method: 'POST',
                 body: data
 
             })
 
-            fetch("/api/legal_expenses", {
+            fetch("http://localhost:4000/api/legal_expenses", {
                 method: 'POST',
                 headers: {
                     'Accept': 'multipart/form-data,application/json, application/xml, text/plain, text/html, *.*',

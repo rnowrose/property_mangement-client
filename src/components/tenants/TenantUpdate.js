@@ -66,7 +66,7 @@ class TenantUpdate extends Component {
         const tenant_id = parseInt(this.props.match.params.tenant_id)
 
 
-        fetch("/api/tenant/" + tenant_id)
+        fetch("http://localhost:4000/api/tenant/" + tenant_id)
             .then(response => response.json())
             .then(data =>
                 this.setState({
@@ -143,7 +143,7 @@ class TenantUpdate extends Component {
             this.setState({ toDisplay: true });
             event.preventDefault();
             window.location.replace("/tenants/" + prop_id);
-            fetch("/api/tenant/" + tenant_id, {
+            fetch("http://localhost:4000/api/tenant/" + tenant_id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

@@ -77,7 +77,7 @@ class FinExDisplay extends Component {
   componentDidMount() {
     this.setState({ isLoading: true });
 
-    fetch("/api/financial_expenses?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
+    fetch("http://localhost:4000/api/financial_expenses?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
       .then(response => response.json())
       .then(data => this.setState({ financial_expenses: data, isLoading: false }));
   }
@@ -85,7 +85,7 @@ class FinExDisplay extends Component {
   submitInfo() {
     this.setState({ isLoading: true });
 
-    fetch("/api/financial_expenses?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
+    fetch("http://localhost:4000/api/financial_expenses?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
       .then(response => response.json())
       .then(data => this.setState({ financial_expenses: data, isLoading: false }));
   }

@@ -112,7 +112,7 @@ class SuppliesExpenseDisplay extends Component {
   componentDidMount() {
     this.setState({ isLoading: true });
 
-    fetch("/api/supplies?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date + "&store=" + this.state.store + "&item_name=" + this.state.item_name)
+    fetch("http://localhost:4000/api/supplies?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date + "&store=" + this.state.store + "&item_name=" + this.state.item_name)
       .then(response => response.json())
       .then(data => this.setState({ supplies: data, isLoading: false }));
   }
@@ -120,7 +120,7 @@ class SuppliesExpenseDisplay extends Component {
   submitInfo() {
     this.setState({ isLoading: true });
 
-    fetch("/api/supplies?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date + "&store=" + this.state.store + "&item_name=" + this.state.item_name)
+    fetch("http://localhost:4000/api/supplies?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date + "&store=" + this.state.store + "&item_name=" + this.state.item_name)
       .then(response => response.json())
       .then(data => this.setState({ supplies: data, isLoading: false }));
   }

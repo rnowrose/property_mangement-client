@@ -47,7 +47,7 @@ class LegalUpdate extends Component {
     componentDidMount() {
         const legexp_id = parseInt(this.props.match.params.legexp_id)
 
-        fetch("/api/legal_expense/" + legexp_id)
+        fetch("http://localhost:4000/api/legal_expense/" + legexp_id)
             .then(response => response.json())
             .then(data => this.setState({ amount: data.amount, description: data.description })
             );
@@ -79,7 +79,7 @@ class LegalUpdate extends Component {
         this.setState({ toDisplay: true });
         event.preventDefault();  
         window.location.replace("/legal_expense");
-        fetch("/api/legal_expense/" + legexp_id, {
+        fetch("http://localhost:4000/api/legal_expense/" + legexp_id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

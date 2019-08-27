@@ -66,7 +66,7 @@ class SupplyUpdate extends Component {
     componentDidMount() {
         const sup_id = parseInt(this.props.match.params.sup_id)
 
-        fetch("/api/supply/" + sup_id)
+        fetch("http://localhost:4000/api/supply/" + sup_id)
             .then(response => response.json())
             .then(data => {
                 this.setState({ amount: data.amount, item_name:data.item_name, description: data.description, store: data.store })
@@ -112,7 +112,7 @@ class SupplyUpdate extends Component {
             this.setState({ toDisplay: true });
             event.preventDefault();  
             window.location.replace("/supplies_expense");
-            fetch("/api/supply/" + sup_id, {
+            fetch("http://localhost:4000/api/supply/" + sup_id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

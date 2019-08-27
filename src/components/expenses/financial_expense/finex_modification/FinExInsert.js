@@ -70,7 +70,7 @@ class FinExInsert extends Component {
             this.setState({ toDisplay: true });
             event.preventDefault();  
             window.location.replace("/finance_expense");
-            fetch("/api/financial_expenses", {
+            fetch("http://localhost:4000/api/financial_expenses", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

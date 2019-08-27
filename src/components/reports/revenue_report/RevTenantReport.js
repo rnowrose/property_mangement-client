@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 import {combineStyles} from './../../styles/combineStyles'
 import DateRange from '../DateRange';
 import Loading from './../../Loading'
+import Moment from 'react-moment';
 
 /**
  * Revenue Information by Tenants
@@ -85,7 +86,7 @@ class RevTenantReport extends Component {
     componentDidMount() {
         this.setState({ isLoading: true });    
         let prop_id = parseInt(this.props.match.params.prop_id);
-        fetch("/api/tenant_rent_report/" + prop_id + "?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
+        fetch("http://localhost:4000/api/tenant_rent_report/" + prop_id + "?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
             .then(response => response.json())
             .then(data => this.setState({ rev_tenant: data[0], isLoading: false }));
     }
@@ -93,7 +94,7 @@ class RevTenantReport extends Component {
     submitInfo() {
         this.setState({ isLoading: true });
         let prop_id = parseInt(this.props.match.params.prop_id);
-        fetch("/api/tenant_rent_report/" + prop_id + "?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
+        fetch("http://localhost:4000/api/tenant_rent_report/" + prop_id + "?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
             .then(response => response.json())
             .then(data => this.setState({ rev_tenant: data[0], isLoading: false }));
     }
@@ -132,7 +133,8 @@ class RevTenantReport extends Component {
                                     <TableRow key={i} className={classes.row}>
                                         <TableCell align='center'>{tenants.tenant_id}</TableCell>
                                         <TableCell align='center'>{tenants.name}</TableCell>
-                                        <TableCell align="center">{tenants.movein_date}</TableCell>
+                                        <TableCell align="center"><Moment format="MM/DD/YYYY hh:mm A">{new Date(tenants.movein_date)}</Moment></TableCell>
+
                                         <TableCell align='center'>${parseInt((tenants.total_amount)).toLocaleString()}</TableCell>
 
                                     </TableRow>

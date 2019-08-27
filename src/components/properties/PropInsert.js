@@ -112,7 +112,7 @@ class PropInsert extends Component {
             this.setState({ toDisplay: true });
             event.preventDefault();  
             window.location.replace("/");
-            fetch("/api/properties", {
+            fetch("http://localhost:4000/api/properties", {
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json',

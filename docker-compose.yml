@@ -11,14 +11,14 @@ services:
     image: property_management-server
     restart: always
     ports:
-      - '4000'
+      - '4000:4000'
     depends_on:
       - postgres
   app-client:
     image: property_management-client
     restart: always
     ports:
-      - '3000'
+      - '3000:3000'
     depends_on:
       - app
 

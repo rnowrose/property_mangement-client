@@ -87,13 +87,13 @@ class FinPayInsert extends Component {
             this.setState({ toDisplay: true });
             event.preventDefault();  
             window.location.replace("/finance_payments/" + finex_id);
-            fetch("/api/upload", {
+            fetch("http://localhost:4000/api/upload", {
                 method: 'POST',
                 body: data
 
             })
 
-            fetch("/api/financial_payments", {
+            fetch("http://localhost:4000/api/financial_payments", {
                 method: 'POST',
                 headers: {
                     'Accept': 'multipart/form-data,application/json, application/xml, text/plain, text/html, *.*',

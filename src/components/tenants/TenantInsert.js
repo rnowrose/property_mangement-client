@@ -119,7 +119,7 @@ class TenantInsert extends Component {
             this.setState({ toDisplay: true });
             event.preventDefault();  
             window.location.replace("/tenants/" + prop_id);
-            fetch("/api/tenants", {
+            fetch("http://localhost:4000/api/tenants", {
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json',

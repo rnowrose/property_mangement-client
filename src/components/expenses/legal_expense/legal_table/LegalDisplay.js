@@ -99,7 +99,7 @@ class LegalDisplay extends Component {
     this.setState({ isLoading: true });
    
    
-    fetch("/api/legal_expenses?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
+    fetch("http://localhost:4000/api/legal_expenses?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
       .then(response => response.json())
       .then(data => {
         this.setState({ legal: data, isLoading: false })
@@ -114,7 +114,7 @@ class LegalDisplay extends Component {
     this.setState({ isLoading: true });
    
    
-    fetch("/api/legal_expenses?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
+    fetch("http://localhost:4000/api/legal_expenses?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
       .then(response => response.json())
       .then(data => {
         this.setState({ legal: data, isLoading: false })

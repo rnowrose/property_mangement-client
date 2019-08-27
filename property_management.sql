@@ -5,12 +5,12 @@ create table property_management.properties (
 	state varchar(20),
 	zip_code varchar(30),
 	status varchar(30) default 'own',
-	date_purchased date
+	date_purchased timestamptz(6) default now()
 	
 );
 
-INSERT INTO property_management.properties(address, city, state, zip_code, date_purchased)
-values('24 Ruth Place', 'Lynbrook', 'NY', '11564', '09/12/2018');
+INSERT INTO property_management.properties(address, city, state, zip_code)
+values('24 Ruth Place', 'Lynbrook', 'NY', '11564');
 
 create table property_management.tenant (
 	tenant_id serial primary key,
@@ -19,14 +19,14 @@ create table property_management.tenant (
 	email varchar(50),
 	phone_number varchar(20),
 	status varchar(20) default 'active',
-	movein_date date,
+	movein_date timestamptz(6) default now(),
 	prop_id int
 );
 
 create table property_management.rent (
 	rent_id serial primary key,
 	amount numeric(7,2),
-	date_paid date,
+	date_paid timestamptz(6) default now(),
 	prop_id int,
 	tenant_id int
 	
@@ -49,7 +49,7 @@ create table property_management.supplies_expense (
 	store varchar(20),
 	payment_receipt varchar(50),
 	item_name varchar(100),
-	date_purchased date,
+	date_purchased timestamptz(6) default now(),
 	exp_id int
 );
 create table property_management.prop_supplies(
@@ -61,7 +61,7 @@ create table property_management.financial_expenses(
 	finex_id serial primary key,
 	description varchar(100),
 	amount numeric(12,2),
-	payment_taken date,
+	payment_taken timestamptz(6) default now(),
 	exp_id int
 );
 
@@ -70,7 +70,7 @@ create table property_management.legal_expenses(
 	description varchar(100),
 	amount numeric(7,2),
 	payment_receipt varchar(100),
-	date_paid date,
+	date_paid timestamptz(6) default now(),
 	exp_id int
 );
 

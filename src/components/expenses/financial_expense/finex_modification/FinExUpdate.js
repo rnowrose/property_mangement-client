@@ -54,7 +54,7 @@ class FinExUpdate extends Component {
 
     componentDidMount() {
         const finex_id = parseInt(this.props.match.params.finex_id)
-        fetch("/api/financial_expense/" + finex_id)
+        fetch("http://localhost:4000/api/financial_expense/" + finex_id)
             .then(response => response.json())
             .then(data => this.setState({ amount: data.amount, description: data.description })
             );
@@ -86,7 +86,7 @@ class FinExUpdate extends Component {
             this.setState({ toDisplay: true });
             event.preventDefault();  
             window.location.replace("/finance_expense");
-            fetch("/api/financial_expense/" + finex_id, {
+            fetch("http://localhost:4000/api/financial_expense/" + finex_id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

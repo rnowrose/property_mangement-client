@@ -106,7 +106,7 @@ class RentInsert extends Component {
             this.setState({ variant: 'error' });
             this.setState({ open_snackbar: true });
         }else{
-            fetch("/api/rents", {
+            fetch("http://localhost:4000/api/rents", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ class RentInsert extends Component {
     componentDidMount() {
         this.setState({ isLoading: true });
         let tenant_id = parseInt(this.props.match.params.tenant_id);
-        fetch("/api/tenant/" + tenant_id)
+        fetch("http://localhost:4000/api/tenant/" + tenant_id)
             .then(response => response.json())
             .then(data => {
                 console.log(data.Rents);

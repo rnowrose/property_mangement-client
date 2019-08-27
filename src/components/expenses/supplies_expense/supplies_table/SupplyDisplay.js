@@ -79,7 +79,7 @@ class SupplyDisplay extends Component {
         const sup_id = parseInt(this.props.match.params.sup_id)
         this.setState({ isLoading: true });
 
-        fetch("/api/supply/" + sup_id)
+        fetch("http://localhost:4000/api/supply/" + sup_id)
             .then(response => response.json())
             .then(data => {
                 this.setState({ isLoading:false, sup_id: data.sup_id, amount: data.amount, item_name:data.item_name, description: data.description, store: data.store, properties: data.Properties, date_purchased:data.date_purchased})

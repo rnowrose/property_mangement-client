@@ -11,6 +11,7 @@ import { withStyles } from '@material-ui/core/styles';
 import {combineStyles} from './../../styles/combineStyles'
 import DateRange from '../DateRange';
 import Loading from './../../Loading'
+import Moment from 'react-moment';
 
 /**
  * Revenue Information by Properties
@@ -84,14 +85,14 @@ class RevenueReport extends Component {
 
     componentDidMount(){
         this.setState({ isLoading: true });
-        fetch("/api/prop_rent_report?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
+        fetch("http://localhost:4000/api/prop_rent_report?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
             .then(response => response.json())
             .then(data => this.setState({ rev_prop: data[0], isLoading: false }));
     }
 
     submitInfo() {
         this.setState({ isLoading: true });
-        fetch("/api/prop_rent_report?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
+        fetch("http://localhost:4000/api/prop_rent_report?start_date=" + this.state.start_date + "&end_date=" + this.state.end_date)
             .then(response => response.json())
             .then(data => this.setState({ rev_prop: data[0], isLoading: false }));
     }
@@ -130,8 +131,9 @@ class RevenueReport extends Component {
                                         <TableCell align='center'><Link to={`/revenue_tenant_report/${properties.prop_id}?start_date=${this.state.start_date}&end_date=${this.state.end_date}`} key={properties.prop_id}>{properties.prop_id}</Link></TableCell>
                                         <TableCell align='center'>{properties.address}</TableCell>
                                         <TableCell align="center">{properties.city}</TableCell>
-                                        <TableCell align="center">{properties.date_purchased}</TableCell>
+                                        <TableCell align="center"><Moment format="MM/DD/YYYY hh:mm A">{new Date(properties.date_purchased)}</Moment></TableCell>
                                         <TableCell align='center'>${parseInt((properties.total_amount)).toLocaleString()}</TableCell>
+                                        
                                     </TableRow>
 
                                 )

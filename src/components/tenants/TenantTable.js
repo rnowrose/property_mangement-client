@@ -69,7 +69,7 @@ class TenantTable extends Component {
     componentDidMount() {
         this.setState({ isLoading: true });
         let prop_id = parseInt(this.props.match.params.prop_id);
-        fetch("/api/property/" + prop_id)
+        fetch("http://localhost:4000/api/property/" + prop_id)
             .then(response => response.json())
             .then(data => {
                 console.log(data.Tenants);
