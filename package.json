@@ -14,7 +14,7 @@
     "@material-ui/system": "^3.0.0-alpha.2",
     "@types/date-fns": "^2.6.0",
     "@types/material-ui": "^0.21.6",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "concurrently": "^4.1.0",
     "date-fns": "^1.30.1",
